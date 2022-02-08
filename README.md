@@ -11,17 +11,17 @@ whoami /priv
 
 #### Users and groups
 ```
-// What users/localgroups are on the machine?
+➤ What users/localgroups are on the machine?
 net users
 net localgroups
 
-// More info about a specific user. Check if user has privileges.
+➤ More info about a specific user. Check if user has privileges.
 net user user1
 
-// View Domain Groups
+➤ View Domain Groups
 net group /domain
 
-// View Members of Domain Group
+➤ View Members of Domain Group
 net group /domain {Group Name}
 ```
 
