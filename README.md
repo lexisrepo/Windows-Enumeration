@@ -59,11 +59,15 @@ dir /b/s proof.txt
 
 
 ## Bloodhound enumeration
-
-#### Let's use bloodhound to visualise the domain and look for privilege escalation paths
 ```
+➤ Install 
+
+➤ Let's use bloodhound to visualise the domain and look for privilege escalation paths
 bloodhound-python -d <DOMAIN> -u <USERNAME> -p <PASSWORD> -gc <COMPUTERNAME>.<DOMAIN> -c all -ns 10.0.0.1
 ----> EX:  bloodhound-python -d example.local -u svc-admin -p s3rvice -gc laptop01.example.local -c all -ns 10.0.0.1
+
+➤ Upload the JSON file into Bloodhound GUI
+
 ```
 
 
