@@ -108,7 +108,7 @@ SeIncreaseWorkingSetPrivilege Increase a process working set               Disab
 
 ➤ 4. Using specific CLSID
 
-helper : https://ohpe.it/juicy-potato/CLSID/
+• helper : https://ohpe.it/juicy-potato/CLSID/
 
 • Manual CLSID dectection based on OS version
 https://ohpe.it/juicy-potato/CLSID/
