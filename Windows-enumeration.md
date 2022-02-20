@@ -50,6 +50,11 @@ netsh firewall show state
 netsh firewall show config
 ```
 
+#### Detecte if Windows Defender is enabled on the machine (powershell command)
+```
+get-item 'hklm:\SOFTWARE\Microsoft\Windows Defender\Real-Time Protection\'
+```
+
 ##### Search a specific filename
 ```
 dir /b/s proof.txt
