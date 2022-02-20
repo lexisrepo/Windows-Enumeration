@@ -1,9 +1,9 @@
-## Privesc
+# Privesc
 
-#### MS17-010 - Eternal Blue
+## MS17-010 - Eternal Blue
 
 
-#### Abuse SeImpersonatePrivilege
+## Abuse SeImpersonatePrivilege
 
 ```
 ➤ 1. Verify that 'SeImpersonatePrivilege' privilege is enabled.
