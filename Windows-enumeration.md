@@ -90,6 +90,11 @@ c:\unattend.xml
 %WINDIR%\Panther\Unattend\Unattended.xml
 %WINDIR%\Panther\Unattended.xml
 
+C:\Windows\Panther\
+C:\Windows\Panther\Unattend\
+C:\Windows\System32\
+C:\Windows\System32\sysprep\
+
 dir c:\*vnc.ini /s /b
 dir c:\*ultravnc.ini /s /b 
 dir c:\ /s /b | findstr /si *vnc.ini
