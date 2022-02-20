@@ -50,6 +50,12 @@ netsh firewall show state
 netsh firewall show config
 ```
 
+#### Vulnerable Drivers
+```
+Some driver might be vulnerable
+driverquery
+```
+
 #### Detecte if Windows Defender is enabled on the machine (powershell command)
 ```
 get-item 'hklm:\SOFTWARE\Microsoft\Windows Defender\Real-Time Protection\'
