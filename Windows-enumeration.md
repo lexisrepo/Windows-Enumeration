@@ -123,6 +123,8 @@ reg query HKCU /f password /t REG_SZ /s
 
 ## Automated enumeration
 
+Winpeas.exe :
+https://github.com/carlospolop/PEASS-ng/releases/tag/20220220
 
 ## Bloodhound enumeration
 ```
